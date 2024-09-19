@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-import { hot } from 'react-hot-loader';
 import PropTypes from 'prop-types';
 
 import Header from '../Header/Header';
@@ -25,18 +24,18 @@ class App extends React.Component {
       { id: 1, type: 'default', value: 'New course available' },
       { id: 2, type: 'urgent', value: 'New course available' },
       { id: 3, type: 'urgent', html: htmlObj },
-    ]
+    ];
 
     return (
       <>
-        <Notifications displayDrawer={ false } listNotifications={ listNotifications } />
+        <Notifications displayDrawer={false} listNotifications={listNotifications} />
         <div className="App">
           <Header />
-          { isLoggedIn ? <CourseList listCourses={ listCourses } /> : <Login /> }
+          {isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
           <Footer />
         </div>
       </>
-    )
+    );
   }
 }
 
@@ -48,4 +47,4 @@ App.defaultProps = {
   isLoggedIn: false,
 };
 
-export default hot(module)(App);
+export default App;
