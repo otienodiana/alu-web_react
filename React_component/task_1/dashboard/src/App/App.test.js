@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
@@ -48,4 +52,23 @@ describe('<App />', () => {
         const wrapper = shallow(<App isLoggedIn={ true } />);
         expect(wrapper.find(CourseList)).toHaveLength(1);
     });
+
+    it('verifies that the user canlog out using ctrl + h', () => {
+        const events = {};
+        window.addEventListener = jest.fn().mockImplementation((e, cb) => {
+            events[e] = cb;
+        });
+
+        const props = {
+            isLoggedIn: true,
+            logOut: jest.fn()
+        }
+        window.alert = jest.fn();
+
+        const wrapper = shallow(<App {...props} />);
+        events.keydown({ ctrlKey: true, key: 'h' });
+        expect(window.alert).toHaveBeenCalledWith("Logging you out");
+        expect(props.logOut).toHaveBeenCalled();
+        window.alert.mockRestore();
+    })
 });
