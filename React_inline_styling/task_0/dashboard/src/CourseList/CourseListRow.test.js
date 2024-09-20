@@ -8,7 +8,7 @@ describe('<CourseListRow />', () => {
         expect(wrapper).toHaveLength(1);
     });
 
-	it('renders a <CourseListRow /> component with isHeader set to true and textSecondCell === null', () => {
+    it('renders a <CourseListRow /> component with isHeader set to true and textSecondCell === null', () => {
         const wrapper = shallow(<CourseListRow isHeader={true} />);
         expect(wrapper.find('th')).toHaveLength(1);
         expect(wrapper.find('th').get(0).props.colSpan).toEqual(2);
@@ -20,7 +20,7 @@ describe('<CourseListRow />', () => {
     });
 
     it('tests the component renders correctly two td elements within a tr element when isHeader is false', () => {
-        const wrapper = shallow(<CourseListRow isHeader={false} />);
-        expect(wrapper.find('tr td')).toHaveLength(2);
-    })
+        const wrapper = shallow(<CourseListRow isHeader={false} textFirstCell="Cell 1" textSecondCell="Cell 2" />);
+        expect(wrapper.find('td')).toHaveLength(2);
+    });
 });
