@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+
 import PropTypes from 'prop-types';
 
 import Header from '../Header/Header';
@@ -14,6 +15,7 @@ import { StyleSheet, css } from 'aphrodite';
 
 const styles = StyleSheet.create({
   /* App-footer */
+
   AppFooter: {
     fontStyle: 'italic',
     borderTop: '4px solid #FF0000',
@@ -60,21 +62,21 @@ class App extends React.Component {
       { id: 1, type: 'default', value: 'New course available' },
       { id: 2, type: 'urgent', value: 'New course available' },
       { id: 3, type: 'urgent', html: htmlObj },
-    ];
+    ]
 
     return (
       <>
-        <Notifications displayDrawer={false} listNotifications={listNotifications} />
+        <Notifications displayDrawer={ false } listNotifications={ listNotifications } />
         <div className="App">
           <Header />
-          {isLoggedIn ?
-            <BodySectionWithMarginBottom title="Course list">
-              <CourseList listCourses={listCourses} />
-            </BodySectionWithMarginBottom>
-            :
-            <BodySectionWithMarginBottom title="Log in to continue">
-              <Login />
-            </BodySectionWithMarginBottom>
+          { isLoggedIn ?
+          <BodySectionWithMarginBottom title="Course list">
+              <CourseList listCourses={ listCourses } />
+          </BodySectionWithMarginBottom>
+           :
+          <BodySectionWithMarginBottom title="Log in to continue">
+            <Login />
+          </BodySectionWithMarginBottom>
           }
           <BodySection title="News from the School">
             <p>Graduation date is January 28th!</p>
@@ -96,5 +98,4 @@ App.defaultProps = {
   logOut: () => {},
 };
 
-// Remove the hot wrapper
-export default App;
+export default (App);
