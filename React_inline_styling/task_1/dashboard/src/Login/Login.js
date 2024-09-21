@@ -1,70 +1,54 @@
-import './Login.css';
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
 const styles = StyleSheet.create({
-   /* App-body */
-    appBody: {
-        minHeight: '60vmin',
-        padding: '32px',
-    },
+	'App-body': {
+		fontSize: '1.4rem',
+		padding: '1.2em',
+		height: '45%',
+	},
 
-    appBodyParagraph: {
-        fontWeight: 'bold',
-    },
+	'form-inputs': {
+		display: 'flex',
+		gap: '2em',
+		alignItems: 'center',
+	},
 
-    form: {
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        gap: '8px',
-        alignItems: 'center',
-    },
-
-    appBodyLabelSpan: {
-        paddingLeft: '2px',
-        fontWeight: 'bold',
-        marginRight: '16px',
-    },
-
-    appBodyInput: {
-        /* display: block, */
-        height: '32px',
-        lineHeight: '16px',
-        fontSize: '16px',
-        paddingLeft: '2px',
-        marginTop: '2px',
-    },
-
-    appBodyButton: {
-        borderRadius: '25px',
-        width: '150px',
-        height: '32px',
-        backgroundColor: 'white', /* #ff4242 */
-        fontSize: '24px',
-        border: '.5px solid lightgrey',
-    },
+	input: {
+		height: '1.4rem',
+		marginLeft: '10px',
+	},
 });
 
-function Login() {
-    return (
-        <div className={css(styles.appBody)} id="Login">
-            <p className={css(styles.appBodyParagraph)}>Login to access the full dashboard</p>
-            <div className={css(styles.form)}>
-                <label htmlFor="email">
-                    <span className={css(styles.appBodyLabelSpan)}>Email:</span>
-                    <input className={css(styles.appBodyInput)} type="email" name="email" id="email" />
-                </label>
-
-                <label htmlFor="password">
-                    <span className={css(styles.appBodyLabelSpan)}>Password:</span>
-                    <input className={css(styles.appBodyInput)} type="password" name="password" id="pwd" />
-                </label>
-
-                <button className={css(styles.appBodyButton)} onClick={ () => { } }>OK</button>
-            </div>
-        </div>
-    );
-}
+const Login = () => {
+	return (
+		<>
+			<div className={css(styles['App-body'])}>
+				<p>Login to access the full dashboard</p>
+				<section className={css(styles['form-inputs'])}>
+					<section className='input'>
+						<label htmlFor='email'>Email:</label>
+						<input
+							type='email'
+							name='email'
+							id='email'
+							className={css(styles.input)}
+						/>
+					</section>
+					<section className='input'>
+						<label htmlFor='password'>Password: </label>
+						<input
+							type='password'
+							name='password'
+							id='password'
+							className={css(styles.input)}
+						/>
+					</section>
+					<button>OK</button>
+				</section>
+			</div>
+		</>
+	);
+};
 
 export default Login;
