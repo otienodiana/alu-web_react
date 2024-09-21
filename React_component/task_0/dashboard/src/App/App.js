@@ -1,6 +1,6 @@
 import './App.css';
 import React, { Component } from 'react';
-import { hot } from 'react-hot-loader';
+
 import PropTypes from 'prop-types';
 
 import Header from '../Header/Header';
@@ -52,4 +52,4 @@ class App extends Component {
   };
 }
 
-export default hot(module)(App);
+export default (App);
